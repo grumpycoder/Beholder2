@@ -21,6 +21,7 @@ namespace Domain.Models
             OrganizationAliases = new List<OrganizationAlias>();
             LogEntries = new List<OrganizationLogEntry>();
         }
+
         public string Name { get; set; }
         public string Description { get; set; }
         public SecurityLevel SecurityLevel { get; set; }

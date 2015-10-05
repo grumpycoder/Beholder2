@@ -12,3 +12,17 @@ C:\temp\Beholder\Domain\bin\Debug\Microsoft.AspNet.Identity.Core.dll
 C:\temp\Beholder\Domain\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.dll
 C:\temp\Beholder\Domain\bin\Debug\Microsoft.AspNet.Identity.Core.xml
 C:\temp\Beholder\Domain\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\source\Beholder2\Domain\bin\Debug\Domain.dll.config
+C:\source\Beholder2\Domain\bin\Debug\Domain.dll
+C:\source\Beholder2\Domain\bin\Debug\Domain.pdb
+C:\source\Beholder2\Domain\bin\Debug\EntityFramework.dll
+C:\source\Beholder2\Domain\bin\Debug\EntityFramework.SqlServer.dll
+C:\source\Beholder2\Domain\bin\Debug\Microsoft.AspNet.Identity.Core.dll
+C:\source\Beholder2\Domain\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\source\Beholder2\Domain\bin\Debug\EntityFramework.xml
+C:\source\Beholder2\Domain\bin\Debug\EntityFramework.SqlServer.xml
+C:\source\Beholder2\Domain\bin\Debug\Microsoft.AspNet.Identity.Core.xml
+C:\source\Beholder2\Domain\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\source\Beholder2\Domain\obj\Debug\Domain.csprojResolveAssemblyReference.cache
+C:\source\Beholder2\Domain\obj\Debug\Domain.dll
+C:\source\Beholder2\Domain\obj\Debug\Domain.pdb

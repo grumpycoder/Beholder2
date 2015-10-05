@@ -6,6 +6,15 @@ namespace Domain.Models
 {
     public class AudioVideo: BaseEntity
     {
+        public AudioVideo()
+        {
+            LogEntries = new List<AudioVideoLogEntry>();
+            Persons = new List<Person>();
+            Events = new List<Event>();
+            Chapters = new List<Chapter>();
+            Organizations = new List<Organization>();
+        }
+
         public string Title { get; set; }
         public string Summary { get; set; }
         public string SpeakerCommentator { get; set; }
@@ -25,10 +34,10 @@ namespace Domain.Models
 
         public ICollection<AudioVideoLogEntry> LogEntries { get; set; }
 
+        public ICollection<Organization> Organizations { get; set; }
+        public ICollection<Chapter> Chapters { get; set; }
         public ICollection<Person> Persons { get; set; }
         public ICollection<Event> Events { get; set; }
-        public ICollection<Chapter> Chapters { get; set; }
-        public ICollection<Organization> Organizations { get; set; }
     }
 
     public class AudioVideoLogEntry: LogEntry

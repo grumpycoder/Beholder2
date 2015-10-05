@@ -6,6 +6,19 @@ namespace Domain.Models
 {
     public class Event: BaseEntity
     {
+        public Event()
+        {
+            LogEntries = new List<EventLogEntry>();
+            Organizations = new List<Organization>();
+            Chapters = new List<Chapter>();
+            Persons = new List<Person>();
+            EventAddresses = new List<EventAddress>();
+            Publications = new List<Publication>();
+            MediaImages = new List<MediaImage>();
+            AudioVideos = new List<AudioVideo>();
+            Correspondences = new List<Correspondence>();
+        }
+
         public string Name { get; set; }
         public string Summary { get; set; }
         public DocumentationType DocumentationType { get; set; }
@@ -20,7 +33,6 @@ namespace Domain.Models
         public ICollection<Organization> Organizations { get; set; }
         public ICollection<Chapter> Chapters { get; set; }
         public ICollection<Person> Persons { get; set; }
-        public ICollection<EventActivity> EventActivity { get; set; }
         public ICollection<EventLogEntry> LogEntries { get; set; }
         public ICollection<EventAddress> EventAddresses { get; set; }
         public ICollection<Publication> Publications { get; set; }
@@ -35,10 +47,6 @@ namespace Domain.Models
         
     }
 
-    public class EventActivity : Activity
-    {
-
-    }
 
     public class EventLogEntry : LogEntry
     {

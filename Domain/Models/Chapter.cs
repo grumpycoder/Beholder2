@@ -4,7 +4,7 @@ using Domain.Models.Enums;
 
 namespace Domain.Models
 {
-    public class Chapter: BaseEntity
+    public class Chapter : BaseEntity
     {
         public Chapter()
         {
@@ -37,32 +37,31 @@ namespace Domain.Models
         public int? OrganizationId { get; set; }
         public virtual Organization Organization { get; set; }
 
+        public ICollection<ChapterActivity> ChapterActivity { get; set; }
         public ICollection<Person> Persons { get; set; }
-        public ICollection<Event> Events { get; set; }
         public ICollection<Website> Websites { get; set; }
         public ICollection<Correspondence> Correspondence { get; set; }
+        public ICollection<Event> Events { get; set; }
         public ICollection<Publication> Publications { get; set; }
-        public ICollection<MediaImage> MediaImages { get; set; }
+        public ICollection<Subscription> Subscriptions { get; set; }
         public ICollection<AudioVideo> AudioVideos { get; set; }
-        
-
-        public ICollection<ChapterActivity> ChapterActivity { get; set; }
+        public ICollection<MediaImage> MediaImages { get; set; }
         public ICollection<ChapterAddress> ChapterAddresses { get; set; }
         public ICollection<ChapterAlias> ChapterAliases { get; set; }
         public ICollection<ChapterLogEntry> LogEntries { get; set; }
 
-        public ICollection<Subscription> Subscriptions { get; set; }
+
     }
 
-  
+
     public class ChapterLogEntry : LogEntry
     {
-        
+
     }
 
     public class ChapterAlias : Alias
     {
-        
+
     }
 
     public class ChapterActivity : Activity

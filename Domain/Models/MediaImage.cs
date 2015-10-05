@@ -6,6 +6,15 @@ namespace Domain.Models
 {
     public class MediaImage: BaseEntity
     {
+        public MediaImage()
+        {
+            LogEntries = new List<MediaImageLogEntry>();
+            Events = new List<Event>();
+            Chapters = new List<Chapter>();
+            Organizations = new List<Organization>();
+            Persons = new List<Person>();
+        }
+
         public string Title { get; set; }
         public string Summary { get; set; }
         public string FileName { get; set; }
@@ -27,10 +36,11 @@ namespace Domain.Models
         public SecurityLevel SecurityLevel { get; set; }
 
         public ICollection<MediaImageLogEntry> LogEntries { get; set; }
-        public ICollection<Event> Events { get; set; }
-        public ICollection<Chapter> Chapters { get; set; }
         public ICollection<Organization> Organizations { get; set; }
+        public ICollection<Chapter> Chapters { get; set; }
         public ICollection<Person> Persons { get; set; }
+        public ICollection<Event> Events { get; set; }
+        
     }
 
     public class MediaImageLogEntry : LogEntry

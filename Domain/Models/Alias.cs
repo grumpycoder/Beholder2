@@ -1,3 +1,5 @@
+using System.Collections;
+using System.Collections.Generic;
 using Domain.Models.Enums;
 
 namespace Domain.Models

@@ -6,6 +6,16 @@ namespace Domain.Models
 {
     public class Correspondence: BaseEntity
     {
+        public Correspondence()
+        {
+            LogEntries = new List<CorrespondenceLogEntry>();
+            Chapters = new List<Chapter>();
+            Persons = new List<Person>();
+            Organizations = new List<Organization>();
+            Publications = new List<Publication>();
+            Websites = new List<Website>();
+            Events = new List<Event>();
+        }
         public string Name { get; set; }
         public string CatalogId { get; set; }
 
@@ -22,9 +32,10 @@ namespace Domain.Models
         public string Receiver { get; set; }
 
         public ICollection<CorrespondenceLogEntry> LogEntries { get; set; }
+
+        public ICollection<Organization> Organizations { get; set; }
         public ICollection<Chapter> Chapters { get; set; }
         public ICollection<Person> Persons { get; set; }
-        public ICollection<Organization> Organizations { get; set; }
         public ICollection<Publication> Publications { get; set; }
         public ICollection<Website> Websites { get; set; }
         public ICollection<Event> Events { get; set; }

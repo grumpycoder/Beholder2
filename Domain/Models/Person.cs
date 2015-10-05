@@ -57,6 +57,7 @@ namespace Domain.Models
         public int? RaceId { get; set; }
 
         public Movement Movement { get; set; }
+        //todo: possible to combine alias and online alias?
         public ICollection<OnlineAlias> OnlineAlias { get; set; }
         public ICollection<Event> Events { get; set; }
         public ICollection<Website> Websites { get; set; }
@@ -79,6 +80,7 @@ namespace Domain.Models
         public string ScreenName { get; set; }
         //todo: better name
         public string UsedAt { get; set; }
+        public PrimaryStatus PrimaryStatus { get; set; }
         public DateTime? FirstUsedDate { get; set; }
         public DateTime? LastUsedDate { get; set; }
     }

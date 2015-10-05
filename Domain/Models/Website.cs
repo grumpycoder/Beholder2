@@ -6,7 +6,15 @@ namespace Domain.Models
 {
     public class Website: BaseEntity
     {
-
+        public Website()
+        {
+            LogEntries = new List<WebsiteLogEntry>();
+            Persons = new List<Person>();
+            Chapters = new List<Chapter>();
+            Organizations = new List<Organization>();
+            Publications = new List<Publication>();
+            Correspondences = new List<Correspondence>();
+        }
         public string Name { get; set; }
         public WebsiteType Type { get; set; }
         public string Url { get; set; }

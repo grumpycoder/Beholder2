@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity;
 using System.Data.Entity.Migrations.Model;
 using System.Diagnostics;
@@ -27,7 +28,8 @@ namespace Domain
             modelBuilder.Entity<IdentityUserLogin>().ToTable("UserLogins", "Security");
             modelBuilder.Entity<IdentityRole>().ToTable("Roles", "Security");
 
-            modelBuilder.Entity<Person>().ToTable("Persons").HasMany(t => t.Websites);
+            modelBuilder.Entity<Person>().ToTable("Persons").Property(p => p.Id).HasDatabaseGeneratedOption(DatabaseGeneratedOption.None);
+            modelBuilder.Entity<Person>().HasMany(t => t.Websites);
             modelBuilder.Entity<Person>().HasMany(t => t.Correspondence);
             modelBuilder.Entity<Person>().HasMany(t => t.Publications);
             modelBuilder.Entity<Person>().HasMany(t => t.MediaImages);
@@ -35,7 +37,7 @@ namespace Domain
             modelBuilder.Entity<Person>().HasMany(t => t.OnlineAlias);
             modelBuilder.Entity<Person>().HasMany(t => t.Websites);
 
-            modelBuilder.Entity<Chapter>().ToTable("Chapters");
+            modelBuilder.Entity<Chapter>().ToTable("Chapters").Property(p => p.Id).HasDatabaseGeneratedOption(DatabaseGeneratedOption.None); ;
             modelBuilder.Entity<Chapter>().HasMany(t => t.Websites);
             modelBuilder.Entity<Chapter>().HasMany(t => t.Persons);
             modelBuilder.Entity<Chapter>().HasMany(t => t.Correspondence);
@@ -43,8 +45,9 @@ namespace Domain
             modelBuilder.Entity<Chapter>().HasMany(t => t.MediaImages);
             modelBuilder.Entity<Chapter>().HasMany(t => t.AudioVideos);
             modelBuilder.Entity<Chapter>().HasMany(t => t.Subscriptions);
+            modelBuilder.Entity<Chapter>().HasMany(t => t.ChapterAliases);
 
-            modelBuilder.Entity<Organization>().ToTable("Organizations");
+            modelBuilder.Entity<Organization>().ToTable("Organizations").Property(p => p.Id).HasDatabaseGeneratedOption(DatabaseGeneratedOption.None); ;
             modelBuilder.Entity<Organization>()
                 .HasMany(t => t.Persons)
                 .WithMany(o => o.Organizations)
@@ -57,7 +60,7 @@ namespace Domain
             modelBuilder.Entity<Organization>().HasMany(t => t.AudioVideos);
             modelBuilder.Entity<Organization>().HasMany(t => t.MediaImages);
 
-            modelBuilder.Entity<Event>().ToTable("Events");
+            modelBuilder.Entity<Event>().ToTable("Events").Property(p => p.Id).HasDatabaseGeneratedOption(DatabaseGeneratedOption.None); 
             modelBuilder.Entity<Event>().HasMany(t => t.Organizations);
             modelBuilder.Entity<Event>().HasMany(t => t.Chapters);
             modelBuilder.Entity<Event>().HasMany(t => t.Persons);
@@ -68,18 +71,25 @@ namespace Domain
             //todo: need seperate table for relationship
             modelBuilder.Entity<Event>().HasMany(t => t.Events);
 
-            modelBuilder.Entity<Website>().ToTable("Websites");
+            modelBuilder.Entity<Website>().ToTable("Websites").Property(p => p.Id).HasDatabaseGeneratedOption(DatabaseGeneratedOption.None); 
             modelBuilder.Entity<Website>().HasMany(t => t.Persons);
             modelBuilder.Entity<Website>().HasMany(t => t.Publications);
             modelBuilder.Entity<Website>().HasMany(t => t.Correspondences);
 
-            modelBuilder.Entity<Correspondence>().ToTable("Correspondences");
+            modelBuilder.Entity<Correspondence>().ToTable("Correspondences").Property(p => p.Id).HasDatabaseGeneratedOption(DatabaseGeneratedOption.None);
 
-            modelBuilder.Entity<Publication>().ToTable("Publication");
+            modelBuilder.Entity<Publication>().ToTable("Publications").Property(p => p.Id).HasDatabaseGeneratedOption(DatabaseGeneratedOption.None);
             modelBuilder.Entity<Publication>().HasMany(t => t.Correspondence);
 
-            modelBuilder.Entity<Subscription>().ToTable("Subscription").HasMany(t => t.Publications);
-            
+            modelBuilder.Entity<Subscription>().ToTable("Subscriptions").Property(p => p.Id).HasDatabaseGeneratedOption(DatabaseGeneratedOption.None);
+            modelBuilder.Entity<Subscription>().HasMany(t => t.Publications);
+
+            modelBuilder.Entity<MediaImage>().ToTable("MediaImages").Property(p => p.Id).HasDatabaseGeneratedOption(DatabaseGeneratedOption.None); 
+
+            modelBuilder.Entity<AudioVideo>().ToTable("AudioVideos").Property(p => p.Id).HasDatabaseGeneratedOption(DatabaseGeneratedOption.None); 
+
+//            modelBuilder.Entity<Alias>().ToTable("Aliases").Property(p => p.Id).HasDatabaseGeneratedOption(DatabaseGeneratedOption.None); 
+
             modelBuilder.Entity<Activity>().ToTable("Activity")
                 .Map<ChapterActivity>(m => m.Requires("Type").HasValue("Chapter"))
                 .Map<OrganizationActivity>(m => m.Requires("Type").HasValue("Organization"));
@@ -93,7 +103,6 @@ namespace Domain
                 .Map<ChapterAlias>(m => m.Requires("Type").HasValue("Chapter"))
                 .Map<PersonAlias>(m => m.Requires("Type").HasValue("Person"))
                 .Map<OrganizationAlias>(m => m.Requires("Type").HasValue("Organization"));
-
 
             modelBuilder.Entity<LogEntry>()
                 .Map<ChapterLogEntry>(m => m.Requires("Type").HasValue("Chapter"))
