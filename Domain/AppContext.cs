@@ -88,8 +88,6 @@ namespace Domain
 
             modelBuilder.Entity<AudioVideo>().ToTable("AudioVideos").Property(p => p.Id).HasDatabaseGeneratedOption(DatabaseGeneratedOption.None); 
 
-//            modelBuilder.Entity<Alias>().ToTable("Aliases").Property(p => p.Id).HasDatabaseGeneratedOption(DatabaseGeneratedOption.None); 
-
             modelBuilder.Entity<Activity>().ToTable("Activity")
                 .Map<ChapterActivity>(m => m.Requires("Type").HasValue("Chapter"))
                 .Map<OrganizationActivity>(m => m.Requires("Type").HasValue("Organization"));

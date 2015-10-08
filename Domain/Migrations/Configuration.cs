@@ -1,18 +1,16 @@
+using System.Data.Entity.Migrations;
+
 namespace Domain.Migrations
 {
-    using System;
-    using System.Data.Entity;
-    using System.Data.Entity.Migrations;
-    using System.Linq;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<Domain.AppContext>
+    internal sealed class Configuration : DbMigrationsConfiguration<AppContext>
     {
         public Configuration()
         {
             AutomaticMigrationsEnabled = true;
         }
 
-        protected override void Seed(Domain.AppContext context)
+        protected override void Seed(AppContext context)
         {
 
         }
