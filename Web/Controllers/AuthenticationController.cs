@@ -1,17 +1,13 @@
-﻿using System.Net;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using System.Web.Mvc;
-using Domain;
 using Domain.Identity;
-using Domain.Models;
 using Microsoft.AspNet.Identity;
-using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.Owin.Security;
 using Web.Models;
 
 namespace Web.Controllers
 {
-    [System.Web.Http.AllowAnonymous]
+    [AllowAnonymous]
     public class AuthenticationController: BaseController
     {
         private readonly ApplicationUserManager _userManager;
@@ -43,6 +39,13 @@ namespace Web.Controllers
             _authManager.SignIn(new AuthenticationProperties {IsPersistent = false}, identity);
 
             return Json(true);
+        }
+
+        public ActionResult Logout()
+        {
+            _authManager.SignOut();
+
+            return View("Login");
         }
 
     }
