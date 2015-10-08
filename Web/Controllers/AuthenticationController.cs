@@ -3,6 +3,7 @@ using System.Web.Mvc;
 using Domain.Identity;
 using Microsoft.AspNet.Identity;
 using Microsoft.Owin.Security;
+using Microsoft.Web.Mvc;
 using Web.Models;
 
 namespace Web.Controllers
@@ -45,7 +46,7 @@ namespace Web.Controllers
         {
             _authManager.SignOut();
 
-            return View("Login");
+            return this.RedirectToAction<HomeController>(c => c.Index());
         }
 
     }
