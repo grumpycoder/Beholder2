@@ -68,6 +68,14 @@
       <HintPath>..\packages\Heroic.AutoMapper.1.1.0\lib\net45\Heroic.AutoMapper.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="HtmlTags, Version=2.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\HtmlTags.2.1.0.183\lib\4.0\HtmlTags.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Humanizer, Version=1.37.7.0, Culture=neutral, PublicKeyToken=979442b78dfc278e, processorArchitecture=MSIL">
+      <HintPath>..\packages\Humanizer.1.37.7\lib\portable-win+net40+sl50+wp8+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Humanizer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Microsoft.AspNet.Identity.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.1\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
       <Private>True</Private>
@@ -222,7 +230,12 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\AngularHelper.cs" />
+    <Compile Include="Helpers\AngularModelHelper.cs" />
+    <Compile Include="Helpers\AngularNgRepeatHelper.cs" />
+    <Compile Include="Helpers\GridTag.cs" />
     <Compile Include="Helpers\JsonHtmlHelpers.cs" />
+    <Compile Include="Helpers\UIRatingTag.cs" />
     <Compile Include="Models\LoginForm.cs" />
     <Compile Include="Models\ProfileForm.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -326,7 +339,7 @@
     <VisualStudio>
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
         <WebProjectProperties>
-          <UseIIS>True</UseIIS>
+          <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>61661</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
