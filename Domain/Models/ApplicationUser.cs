@@ -15,5 +15,7 @@ namespace Domain.Models
 
         public SecurityLevel SecurityLevel { get; set; }
 
+        public string FullName { get; set; }
+
     }
 }

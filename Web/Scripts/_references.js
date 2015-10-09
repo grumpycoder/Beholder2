@@ -1,6 +1,7 @@
 ﻿/// <autosync enabled="true" />
 /// <reference path="../app/app.js" />
 /// <reference path="../app/authentication/logincontroller.js" />
+/// <reference path="../app/profile/editprofilecontroller.js" />
 /// <reference path="angular.min.js" />
 /// <reference path="angular-mocks.js" />
 /// <reference path="bootstrap.min.js" />
